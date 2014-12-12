@@ -60,8 +60,6 @@
 
 #pragma mark - iAd View Display / Hiding Methods
 
-//  Objective C Methods
-
 - (void)showBannerViewAnimated:(BOOL)animated
 {
     if ([self.bannerView isBannerLoaded])
@@ -147,14 +145,6 @@
 }
 
 #pragma mark - Lua C Functions
-
-//  C Functions
-//
-//  Note that the returned value from all exported Lua functions is how many values that function should return in Lua.
-//  For example, if you return 0 from that function, you are telling Lua that function returns 0 values.
-//  If you return 2, you are telling Lua to expect 2 values on the stack when the function returns.
-//
-//  To actually return values, you need to push them onto the Lua stack and then return the number of values you pushed on.
 
 static int showAdFromTop(struct lua_State *state)
 {
