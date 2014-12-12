@@ -19,12 +19,5 @@
 
 @property (strong, nonatomic) ADBannerView *bannerView;
 
-// Forward declare our Lua iAd functions. These are static to confine their scope
-//  to this file. By default c functions are global.
-
-static int showAdFromTop(struct lua_State *state);
-static int showAdFromBottom(struct lua_State *state);
-static int hideAd(struct lua_State *state);
-
 @end
 

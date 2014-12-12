@@ -58,7 +58,7 @@
     lua_register(L, "hideAd", hideAd);
 }
 
-#pragma mark - iAds Add On Functions and associated Methods
+#pragma mark - iAd View Display / Hiding Methods
 
 //  Objective C Methods
 
@@ -145,6 +145,8 @@
         _isBannerVisible = NO;
     }
 }
+
+#pragma mark - Lua C Functions
 
 //  C Functions
 //
