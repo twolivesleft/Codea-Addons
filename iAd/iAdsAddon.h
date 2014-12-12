@@ -7,8 +7,6 @@
 #import <Foundation/Foundation.h>
 #import <iAd/iAd.h>
 
-// This class conforms to the ADBannerViewDelegate Protocols
-
 @interface iAdsAddon : CodeaAddon<ADBannerViewDelegate>
 
 + (instancetype) sharedInstance;
