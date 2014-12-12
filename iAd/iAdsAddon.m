@@ -9,6 +9,16 @@
 #import "lua.h"
 #import "lauxlib.h"
 
+@interface iAdsAddon ()
+
+@property (atomic, assign) BOOL isBannerVisible;
+@property (atomic, assign) BOOL showBannerFromTop;
+@property (atomic, assign) BOOL adsAllowed;
+
+@property (strong, nonatomic) ADBannerView *bannerView;
+
+@end
+
 @implementation iAdsAddon
 
 #pragma mark - Singleton
