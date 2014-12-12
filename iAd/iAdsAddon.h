@@ -5,9 +5,8 @@
 #import "CodeaAddon.h"
 
 #import <Foundation/Foundation.h>
-#import <iAd/iAd.h>
 
-@interface iAdsAddon : CodeaAddon<ADBannerViewDelegate>
+@interface iAdsAddon : CodeaAddon
 
 + (instancetype) sharedInstance;
 

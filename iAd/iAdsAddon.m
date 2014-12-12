@@ -2,6 +2,8 @@
 //  iAdsAddon.m
 //
 
+#import <iAd/iAd.h>
+
 #import "iAdsAddon.h"
 
 #import "StandaloneCodeaViewController.h"
@@ -9,7 +11,7 @@
 #import "lua.h"
 #import "lauxlib.h"
 
-@interface iAdsAddon ()
+@interface iAdsAddon ()<ADBannerViewDelegate>
 
 @property (atomic, assign) BOOL isBannerVisible;
 @property (atomic, assign) BOOL showBannerFromTop;
