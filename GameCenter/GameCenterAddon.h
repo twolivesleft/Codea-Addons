@@ -14,7 +14,7 @@
  -------------------------------------------
  
  -- Check if GameCenter is enabled
- if gamecenter.enabled then
+ if gamecenter.enabled() then
  
      -- Submit to default leaderboard
      gamecenter.submitScore( 1234 )

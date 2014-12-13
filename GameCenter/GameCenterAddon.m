@@ -36,16 +36,14 @@ static const luaL_Reg gamecenterLibs[] =
     {"enabled", gamecenter_enabled},
     {"showLeaderboards", gamecenter_showLeaderboards},
     {"showAchievements", gamecenter_showAchievements},
-    {"showAchievements", gamecenter_submitScore},
-    {"showAchievements", gamecenter_submitAchievement},
+    {"submitScore",      gamecenter_submitScore},
+    {"submitAchievement",gamecenter_submitAchievement},
     {NULL, NULL}
 };
 
 #pragma mark - Game Center Addon
 
 @interface GameCenterAddon ()<GKGameCenterControllerDelegate>
-
-@property (nonatomic, weak) StandaloneCodeaViewController *currentCodeaController;
 
 @end
 
@@ -168,11 +166,6 @@ static const luaL_Reg gamecenterLibs[] =
 }
 
 #pragma mark - Codea Addon Protocol Implementation
-
-- (void) codeaDidRegisterAddon:(StandaloneCodeaViewController *)controller
-{
-    NSLog(@"Registered GameCenter Addon");
-}
 
 - (void) codea:(StandaloneCodeaViewController*)codeaController didCreateLuaState:(struct lua_State*)L
 {
