@@ -41,6 +41,14 @@ static const luaL_Reg gamecenterLibs[] =
     {NULL, NULL}
 };
 
+static int luaopen_gamecenter(lua_State *L)
+{
+    //Register Game Center functions with Lua
+    luaL_openlib(L, GAMECENTER_LIB_NAME, gamecenterLibs, 0);
+    
+    return 1;
+}
+
 #pragma mark - Game Center Addon
 
 @interface GameCenterAddon ()<GKGameCenterControllerDelegate>
@@ -131,7 +139,7 @@ static const luaL_Reg gamecenterLibs[] =
     localScore.leaderboardIdentifier = leaderboard ?: self.defaultLeaderboard;
     
     [GKScore reportScores:@[localScore] withCompletionHandler:^(NSError *error) {
-       //Do nothing yet
+        //Do nothing yet
     }];
 }
 
@@ -142,7 +150,7 @@ static const luaL_Reg gamecenterLibs[] =
     localAchievement.percentComplete = percent;
     
     [GKAchievement reportAchievements:@[localAchievement] withCompletionHandler:^(NSError *error) {
-       //Do nothing yet
+        //Do nothing yet
     }];
 }
 
@@ -172,8 +180,7 @@ static const luaL_Reg gamecenterLibs[] =
     //Authenticate the local player, pausing the runtime if necessary
     [self authenticateLocalPlayerWithCodeaController:codeaController];
     
-    //Register Game Center functions with Lua
-    luaL_openlib(L, GAMECENTER_LIB_NAME, gamecenterLibs, 0);
+    CODEA_ADDON_REGISTER(GAMECENTER_LIB_NAME, luaopen_gamecenter);
 }
 
 #pragma mark - Game Center View Controller Delegate
@@ -181,7 +188,7 @@ static const luaL_Reg gamecenterLibs[] =
 - (void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
 {
     [gameCenterViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
-       
+        
         //Unpause Codea Runtime
         self.codeaController.paused = NO;
         
@@ -212,7 +219,7 @@ static int gamecenter_showLeaderboards(struct lua_State* L)
     //All Lua functions call outside of main thread
     // we need to handle any UI on main thread
     dispatch_async(dispatch_get_main_queue(), ^{
- 
+        
         //If leaderboard is nil, default leaderboard will be used
         [[GameCenterAddon sharedInstance] showLeaderboardWithID:leaderboardID];
         

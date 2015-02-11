@@ -15,6 +15,11 @@
 
 #import "StandaloneCodeaViewController.h"
 
+#define CODEA_ADDON_REGISTER(name, func) \
+            lua_pushcfunction(L, (func)); \
+            lua_pushstring(L, (name)); \
+            lua_call(L, 1, 0);
+
 @class CodeaViewController;
 
 struct lua_State;
