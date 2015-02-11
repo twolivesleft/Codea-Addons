@@ -25,10 +25,10 @@
  end
  
  -- Show default GameCenter leaderboard (pauses Codea)
- gamecenter.showLeaderboard()
+ gamecenter.showLeaderboards()
  
  -- Show specific GameCenter leaderboard (pauses Codea)
- gamecenter.showLeaderboard(“LeaderboardID”)
+ gamecenter.showLeaderboards(“LeaderboardID”)
  
  -- Show achievements (pauses Codea)
  gamecenter.showAchievements()
