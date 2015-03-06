@@ -16,9 +16,8 @@
 #import "StandaloneCodeaViewController.h"
 
 #define CODEA_ADDON_REGISTER(name, func) \
-            lua_pushcfunction(L, (func)); \
-            lua_pushstring(L, (name)); \
-            lua_call(L, 1, 0);
+            luaL_requiref(L, (name), (func), 1); \
+            lua_pop(L, 1);
 
 @class CodeaViewController;
 
