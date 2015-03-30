@@ -44,7 +44,8 @@ static const luaL_Reg gamecenterLibs[] =
 static int luaopen_gamecenter(lua_State *L)
 {
     //Register Game Center functions with Lua
-    luaL_openlib(L, GAMECENTER_LIB_NAME, gamecenterLibs, 0);
+    lua_newtable(L);
+    luaL_setfuncs(L, gamecenterLibs, 0);
     
     return 1;
 }
