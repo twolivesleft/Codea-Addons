@@ -163,7 +163,7 @@ static int luaopen_gamecenter(lua_State *L)
     
     [self showGameCenterWithConfigurationBlock:^(GKGameCenterViewController *gvc) {
         gvc.viewState = GKGameCenterViewControllerStateLeaderboards;
-        gvc.leaderboardIdentifier = weakSelf.defaultLeaderboard;
+        gvc.leaderboardIdentifier = leaderboardID;
     }];
 }
 
